@@ -1,55 +1,98 @@
 import streamlit as st
-from PIL import Image
 
-# Set page config
-st.set_page_config(page_title="My Portfolio", page_icon="🎭", layout="wide")
+# Set page configuration
+st.set_page_config(page_title="Pratik Gond | Portfolio", page_icon="🎭", layout="wide")
 
-# Sidebar
+# Sidebar with contact info
 with st.sidebar:
-    st.image("selfimage.jpg", width=200)
-    st.title("Pratik Gond")
-    st.write("College Student ")
-    st.write("📍Kurukshetra,Haryana")
-    st.write("📧 Kushbohare@gmail.com")
-    st.write("🌐 [Your Website](https://yourwebsite.com)")
-    st.write("🔗 [LinkedIn](https://www.linkedin.com/in/kush-bohare-bohare-774775351/) | [GitHub](https://github.com/Programmer-kush)")
+    st.markdown("# **Contact Information**")
+    st.write("**Location:** Kurukshetra, Haryana")
+    st.write("**Email:** [pratikgond2005@gmail.com](mailto:pratikgond2005@gmail.com)")
+    st.write("**LinkedIn:** [linkedin.com/in/pratikgond](https://www.linkedin.com/in/pratikgond/)")
+    st.write("**GitHub:** [github.com/pratik2374](https://github.com/pratik2374)")
+    st.write("**LeetCode:** [leetcode.com/u/pratikgond/](https://leetcode.com/u/pratikgond/)")
 
-# Main Content
-st.title("Welcome to My Portfolio")
+
+# Main content
+st.title("PRATIK GOND")
+st.markdown("*Software Developer | ML Enthusiast*")
+st.markdown("### Exploring AI, Automation, and Software Development to solve real-world problems.")
+st.markdown("---")
+
+
+# Skills Section
+st.header("Skills")
+st.markdown(
+    """
+    - **Programming Languages:** Python, C, Java, Markdown  
+    - **Technologies & Frameworks:** LangChain, Flask, Pandas, NumPy, Scikit-Learn, SQL  
+    - **Concepts:** Machine Learning, Data Analysis, Generative AI, Fine-tuning, OOPs  
+    - **Developer Tools:** VS Code, Jupyter Notebook, GitHub, Arduino IDE  
+    """
+)
+st.markdown("---")
+
+# Projects Section
+st.header("💡 Projects")
+
+# Function to create a project card with equal line spacing
+def create_project(title, image_path, description, link, col):
+    with col:
+        st.subheader(title)
+        st.image(image_path, use_container_width=True)
+        st.write(description)
+        st.markdown(f"[🔗 View Project]({link})")
+
+# Creating rows with 3 columns each
+cols = st.columns(3)
+project_data = [
+    ("LinkedIn Post Generator", "1.png",  
+     "An AI-powered system that analyzes writing patterns and generates LinkedIn posts using LangChain.",  
+     "https://github.com/pratik2374/linkedin-post-genaror-with-image"),  
+    
+    ("AI Resume Screening App", "2.png",  
+     "An AI-powered resume screening tool that classifies candidates based on job descriptions and exports data.",  
+     "https://github.com/pratik2374/AI-Resume_Screening-app"),  
+    
+    ("Car Parking System", "3.png",  
+     "A smart IoT-based car parking system using YOLO, OpenCV, ESP32, and ThingSpeak. that contribute together for smart and effient car parking system",  
+     "https://github.com/pratik2374/Automated-Car-parking-system"),  
+    
+    ("Documentation Generator", "4.png",  
+     "A Python documentation generator using AST, Tree-Sitter, and ChatGroq API for auto-generated docstrings.",  
+     "https://github.com/pratik2374/documentaion-writer"),  
+    
+    ("Sales Data Analysis", "5.png",  
+     "A data analysis project identifying top-selling products and sales trends using Pandas and Seaborn.",  
+     "https://github.com/pratik2374/Data-analyis-Ecommerce-Sales-and-Prediction"),  
+    
+    ("Chatbot with AI Agents", "6.png",  
+     "An AI chatbot that processes PDFs and uses external agents like search engines and Wikipedia to adrres the query effciently by user.",  
+     "https://github.com/pratik2374/pdf_chatbot"),  
+]
+
+# Loop through projects and distribute them across columns
+for i, project in enumerate(project_data):
+    create_project(*project, cols[i % 3])
+
+st.markdown("---")
 
 # About Me
 st.header("About Me")
-st.write(
+st.markdown(
     """
- I   I am a college student who is passionate about software development and machine learning.
-   I am currently pursuing my B.Tech in Information Technology and Engineering from NIT Kurukshetra.
-     I have experience working with Python, C++, and Java. 
-     I am always eager to learn new technologies and build projects that solve real-world problems.
-    I am also a active member of EMR club of our college
+    I am a **passionate software developer and machine learning enthusiast**, currently pursuing a **B.Tech in Information Technology at NIT Kurukshetra (2023 - 2027)**.  
+    My expertise includes **Python, C, and Java**, along with frameworks such as **LangChain, Flask, and Scikit-Learn**.  
+    I specialize in **AI, data analysis, and automation**, and enjoy building innovative projects that **solve real-world problems**.
+
+    Some of my notable projects include:  
+    - **AI-powered LinkedIn Post Generator**  
+    - **Automated Resume Screening System**  
+    - **Smart Parking Solution using YOLO**  
+
+    Beyond academics, I actively **contribute to technical projects** and **continuously expand my knowledge** in **Generative AI, fine-tuning models, and automation**.
     """
 )
+st.markdown("---")
 
-# Projects
-st.header("Projects")
-col1, col2 = st.columns(2)
-
-with col1:
-    st.subheader("Movie-recomdation-system")
-    st.image("selfimage.jpg", use_container_width=True)
-    st.write("Short description of the project.")
-    st.write("[🔗 View Project](https://github.com/pratik2374)")
-
-with col2:
-    st.subheader("Project 2")
-    st.image("selfimage.jpg", use_container_width=True)
-    st.write("Short description of the project.")
-    st.write("[🔗 View Project](https://github.com/pratik2374)")
-
-# Skills
-st.header("Skills")
-skills = ["Python", "Machine Learning", "Web Development", "IoT", "Android Development"]
-st.write(", ".join(skills))
-
-# Contact
-st.header("Contact Me")
-st.write("Feel free to reach out via email or LinkedIn!")
+st.markdown("Feel free to reach out via email or LinkedIn! 🚀")
