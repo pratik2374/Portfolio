@@ -1,4 +1,35 @@
 import streamlit as st
+st.markdown("""
+    <style>
+        /* Set background color */
+        .stApp {
+            background-color: #0e1117;
+            color: white;
+        }
+        
+        /* Style sidebar */
+        .css-1d391kg {
+            background-color: #161b22 !important;
+        }
+
+        /* Modify text color */
+        h1, h2, h3, h4, h5, h6, p {
+            color: white !important;
+        }
+
+        /* Change input and button styles */
+        .stTextInput, .stButton>button, .stTextArea>textarea {
+            background-color: #21262d !important;
+            color: white !important;
+            border-radius: 5px;
+        }
+
+        /* Adjust links */
+        a {
+            color: #58a6ff !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Set page configuration
 st.set_page_config(page_title="Pratik Gond | Portfolio", page_icon="🎭", layout="wide")
