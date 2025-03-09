@@ -1,4 +1,5 @@
 import streamlit as st
+st.set_page_config(page_title="Pratik Gond | Portfolio", page_icon="🎭", layout="wide")
 st.markdown("""
     <style>
         /* Set background color */
@@ -32,7 +33,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Set page configuration
-st.set_page_config(page_title="Pratik Gond | Portfolio", page_icon="🎭", layout="wide")
+
 
 # Sidebar with contact info
 with st.sidebar:
